@@ -1,0 +1,29 @@
+{
+	"name": "onlab-clinical-main-backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "node src/index.js",
+		"dev": "nodemon src/index.js",
+		"lint": "eslint src/*"
+	},
+	"keywords": [],
+	"author": "SBSYS",
+	"license": "ISC",
+	"dependencies": {
+		"apollo-server-core": "3.6.7",
+		"apollo-server-express": "3.6.7",
+		"bcrypt": "5.0.1",
+		"dotenv": "16.0.0",
+		"express": "4.17.3",
+		"graphql": "16.3.0",
+		"pg": "8.7.3",
+		"pg-hstore": "2.3.4",
+		"sequelize": "6.19.0"
+	},
+	"devDependencies": {
+		"eslint": "8.13.0",
+		"nodemon": "2.0.15"
+	}
+}

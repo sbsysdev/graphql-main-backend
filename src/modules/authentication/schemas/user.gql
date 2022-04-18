@@ -1,0 +1,28 @@
+"""
+OnLab-Clinical basic user data
+"""
+type User {
+	id: ID!
+	name: String!
+	password: String!
+}
+
+type Auth {
+	id: ID!
+	name: String!
+	lastName: String!
+	age: Int!
+	user: User!
+}
+
+type Query {
+	"""
+	OnLab-Clinical basic user list data
+	"""
+	users: [User!]!
+	auths: [Auth!]!
+}
+
+type Mutation {
+	addUser(name: String!, password: String!): Auth!
+}
