@@ -1,15 +1,16 @@
-const getGraphqlProps = info => {
-	const props = [];
+const getSelectionsFromFieldNode = fieldNode =>
+	fieldNode.selectionSet?.selections?.reduce(
+		(prev, current) =>
+			prev.find(value => value === current.name?.value)
+				? prev
+				: [...prev, current.name?.value],
+		[]
+	) || [];
 
-	if (!Array.isArray(info.fieldNodes)) return props;
-
-	info.fieldNodes.forEach(fieldNode => {
-		fieldNode.selectionSet?.selections?.forEach(selection => {
-			props.push(selection.name?.value);
-		});
-	});
-
-	return props;
-};
+const getGraphqlProps = info =>
+	info?.fieldNodes?.reduce(
+		(prev, current) => [...prev, ...getSelectionsFromFieldNode(current)],
+		[]
+	) || [];
 
 module.exports = getGraphqlProps;
